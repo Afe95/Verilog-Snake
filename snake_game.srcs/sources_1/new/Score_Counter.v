@@ -24,23 +24,30 @@ module Score_Counter(
     input CLK,
     input RESET,
     input reached_target,
+    input [1:0] master_state,
     output [1:0] STROBE,
-    output [7:0] SCORE
+    output [3:0] SCORE
     );
     
     wire Bit17TriggOut;
     wire [1:0] StrobeCount;
     
-    reg [7:0] current_score;
-    
+    reg [3:0] current_score;
+//    reg [3:0] next_score;
     assign SCORE = current_score;
     
     always@(posedge CLK) begin
-        if (reached_target)
-            current_score <= current_score + 1;
-        else
-            current_score <= current_score;
+        if (master_state == 2'd1) begin
+            if (reached_target)
+                current_score <= current_score + 4'd1;
+        end
+        else if (RESET)
+            current_score <= 4'd0;
     end
+    
+//    always@(posedge CLK) begin
+//        current_score <= next_score;
+//    end
     
     Generic_counter # (
                         .COUNTER_WIDTH(17),
@@ -48,7 +55,7 @@ module Score_Counter(
                       )
                       Bit17Counter (
                         .CLK(CLK),
-                        .RESET(RESET),
+                        .RESET(1'b0),
                         .ENABLE_IN(1'b1),
                         .TRIG_OUT(Bit17TriggOut)
                       );
@@ -59,7 +66,7 @@ module Score_Counter(
                         )
                         Bit2Counter (
                           .CLK(CLK),
-                          .RESET(RESET),
+                          .RESET(1'b0),
                           .ENABLE_IN(Bit17TriggOut),
                           .COUNT(STROBE)
                       );

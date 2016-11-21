@@ -1,0 +1,64 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date         : Mon Nov 21 05:29:58 2016
+| Host         : henman.inf.ed.ac.uk running 64-bit Scientific Linux release 7.2 (Nitrogen)
+| Command      : report_control_sets -verbose -file Master_Game_control_sets_placed.rpt
+| Design       : Master_Game
+| Device       : xc7a35t
+--------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    11 |
+| Minimum Number of register sites lost to control set restrictions |    38 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              18 |           10 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              41 |           12 |
+| Yes          | No                    | No                     |              35 |           14 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             604 |          166 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------+-----------------------------------------+------------------------------------+------------------+----------------+
+|  Clock Signal  |              Enable Signal              |          Set/Reset Signal          | Slice Load Count | Bel Load Count |
++----------------+-----------------------------------------+------------------------------------+------------------+----------------+
+|  CLK_IBUF_BUFG | msm/E[0]                                | msm/SR[0]                          |                2 |              4 |
+|  CLK_IBUF_BUFG | tg/vertical_shift_reg[6]_i_2_n_0        | tg/vertical_shift_reg[6]_i_1_n_0   |                2 |              7 |
+|  CLK_IBUF_BUFG | s/moveSnake/SnakeState_Y_reg[0][0][0]   |                                    |                3 |              7 |
+|  CLK_IBUF_BUFG | tg/horizontal_shift_reg[7]_i_2_n_0      | tg/horizontal_shift_reg[7]_i_1_n_0 |                2 |              8 |
+|  CLK_IBUF_BUFG | s/moveSnake/SnakeState_X_reg[0][0][0]   |                                    |                5 |              8 |
+|  CLK_IBUF_BUFG | vgai/vga/CounterTo799/TrigSecondCounter |                                    |                4 |             10 |
+|  CLK_IBUF_BUFG | vgai/vga/CounterTo3/CounterTo4Trigger   |                                    |                2 |             10 |
+|  CLK_IBUF_BUFG |                                         | vgai/vga/CounterTo799/SR[0]        |                5 |             15 |
+|  CLK_IBUF_BUFG |                                         |                                    |               10 |             18 |
+|  CLK_IBUF_BUFG |                                         | BTNC_IBUF                          |                7 |             26 |
+|  CLK_IBUF_BUFG | s/moveSnake/E[0]                        | s/moveSnake/SR[0]                  |              160 |            585 |
++----------------+-----------------------------------------+------------------------------------+------------------+----------------+
+
+

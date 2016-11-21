@@ -21,22 +21,22 @@
 
 
 module VGA_Driver(
-        CLK,
-        COLOUR_IN,
-        ADDRH,
-        ADDRV,
-        COLOUR_OUT,
-        HS,
-        VS
+    input CLK,
+    input [11:0] COLOUR_IN,
+    output [9:0] ADDRH,
+    output [9:0] ADDRV,
+    output [11:0] COLOUR_OUT,
+    output HS,
+    output VS
     );
     
-    input CLK;
-    input [11:0] COLOUR_IN;
-    output [9:0] ADDRH;
-    output [9:0] ADDRV;
-    output reg [11:0] COLOUR_OUT;
-    output reg HS;
-    output reg VS;
+    reg [11:0] col_out;
+    reg hsync;
+    reg vsync;
+    
+    assign COLOUR_OUT = col_out;
+    assign HS = hsync;
+    assign VS = vsync;
     
     parameter VertTimeToPulseWeidthEnd = 10'd2;
     parameter VertTimeToBackPorchEnd = 10'd31;
@@ -93,17 +93,17 @@ module VGA_Driver(
     //If counterTo799 less than 96, HS = 0 else HS=1
     always@(posedge CLK) begin
         if (CounterTo799Trigger < HorzTimeToPulseWidthEnd)
-            HS <= 1'b0;
+            hsync <= 1'b0;
         else
-            HS <= 1'b1;
+            hsync <= 1'b1;
     end
     
     //If counterTo520 less then 2, VS = 0 else VS=1
     always@(posedge CLK) begin
         if (CounterTo520Trigger < VertTimeToPulseWeidthEnd)
-            VS <= 1'b0;
+            vsync <= 1'b0;
         else
-            VS <= 1'b1;
+            vsync <= 1'b1;
     end
     
     reg [9:0] HorAddr;
@@ -115,12 +115,12 @@ module VGA_Driver(
     always@(posedge CLK) begin
         if ((VertTimeToBackPorchEnd <= CounterTo520Trigger) && (CounterTo520Trigger < VertTimeToDisplayTimeEnd) &&
             (HorzTimeToBackPorchEnd <= CounterTo799Trigger) && (CounterTo799Trigger < HorzTimeToDisplayTimeEnd)) begin
-            COLOUR_OUT <= COLOUR_IN;
+            col_out <= COLOUR_IN;
             HorAddr <= CounterTo799Trigger - HorzTimeToBackPorchEnd;
             VerAddr <= CounterTo520Trigger - VertTimeToBackPorchEnd;
         end
         else begin
-            COLOUR_OUT <= 12'h000;
+            col_out <= 12'h000;
             HorAddr <= 10'd0;
             VerAddr <= 10'd0;
         end

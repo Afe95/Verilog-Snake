@@ -22,13 +22,13 @@
 
 module Master_State_Machine(
         input CLK,
-        input RESET,
         input BTNU,
         input BTND,
         input BTNL,
         input BTNR,
         input BTNC,
         input [7:0] SCORE,
+        input fail,
         output [1:0] STATE
     );
     
@@ -39,10 +39,12 @@ module Master_State_Machine(
     always@(posedge CLK) begin
         if (state_game == 2'd0 && (BTNU || BTND || BTNL || BTNR))
             state_game <= 2'd1;
-        else if (state_game == 2'd2 && RESET)
+        else if (state_game == 2'd2 && BTNC)
             state_game <= 2'd0;
-        else if (state_game == 2'd1 && SCORE == 8'd10)
+        else if (state_game == 2'd1 && SCORE == 4'd9)
             state_game <= 2'd2;
+        else if (state_game == 2'd1 && fail)
+            state_game <= 2'd0;
         else
             state_game <= state_game;
     end

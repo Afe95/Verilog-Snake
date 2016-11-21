@@ -29,6 +29,10 @@ module Target_Generator(
     
     reg [7:0] horizontal_shift_reg;
     reg [6:0] vertical_shift_reg;
+    
+//    reg [7:0] next_horizontal_shift_reg;
+//    reg [6:0] next_vertical_shift_reg;
+    
     wire eight_first_xnor;
     wire eight_second_xnor;
     wire eight_third_xnor;
@@ -42,27 +46,27 @@ module Target_Generator(
     assign seven_xnor = ((~vertical_shift_reg[5])&&(~vertical_shift_reg[6])) || ((vertical_shift_reg[5])&&(vertical_shift_reg[6]));
     
     always@(posedge CLK) begin
-        if (RESET) begin
-            horizontal_shift_reg <= 8'b00000000;
-            vertical_shift_reg <= 7'b0000000;
-        end
-        else begin
-            if (reached_target) begin
-                if ({horizontal_shift_reg[6:0], eight_third_xnor} <= 160)
+//        if (RESET) begin
+//            horizontal_shift_reg <= 8'b01100010;
+//            vertical_shift_reg <= 7'b0101100;
+//        end
+//        else begin
+            if (reached_target || RESET) begin
+                if ({horizontal_shift_reg[6:0], eight_third_xnor} <= 160 && {horizontal_shift_reg[6:0], eight_third_xnor} >= 10)
                     horizontal_shift_reg <= {horizontal_shift_reg[6:0], eight_third_xnor};
                 else
                     horizontal_shift_reg <= {8'd80};
                     
-                if ({vertical_shift_reg[5:0], seven_xnor} <= 120)
+                if ({vertical_shift_reg[5:0], seven_xnor} <= 120 && {vertical_shift_reg[5:0], seven_xnor} >= 10)
                     vertical_shift_reg <= {vertical_shift_reg[5:0], seven_xnor};
                 else
                     vertical_shift_reg <= {7'd60};
             end  
-            else begin
-                horizontal_shift_reg <= horizontal_shift_reg;
-                vertical_shift_reg <= vertical_shift_reg;
-            end
-        end
+//            else begin
+//                horizontal_shift_reg <= horizontal_shift_reg;
+//                vertical_shift_reg <= vertical_shift_reg;
+//            end
+//        end
     end
     
 endmodule

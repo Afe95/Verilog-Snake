@@ -22,7 +22,6 @@
 
 module Navigation_State_Machine(
         input CLK,
-        input RESET,
         input BTNU,
         input BTND,
         input BTNL,
@@ -32,27 +31,53 @@ module Navigation_State_Machine(
     );
     
     reg [1:0] state_snake;
-    
+    reg [1:0] next_snake;
     assign STATE = state_snake;
-    
-    wire [1:0] next_state;
-    
-    if (BTNU)
-        assign next_state = 2'd0;
-    else if (BTNL)
-        assign next_state = 2'd1;
-    else if (BTNR)
-        assign next_state = 2'd2;
-    else if (BTND)
-        assign next_state = 2'd3;
-    else
-        assign next_state = state_snake;
+
         
-    always@(CLK) begin
-        if (state_snake != ~next_state)
-            state_snake <= next_state;
-        else
-            state_snake <= state_snake;
+    always@(BTNL or BTNR or BTNU or BTND) begin
+        case(state_snake)
+            2'd0: begin
+                if (BTNU)
+                    next_snake <= 2'd2;
+                else if (BTND)
+                    next_snake <= 2'd1;
+                else
+                    next_snake <= 2'd0;
+            end
+            
+            2'd1: begin
+                if (BTNR)
+                    next_snake <= 2'd0;
+                else if (BTNL)
+                    next_snake <= 2'd3;
+                else
+                    next_snake <= 2'd1;
+            end
+            
+            2'd2: begin
+                if (BTNR)
+                    next_snake <= 2'd0;
+                else if (BTNL)
+                    next_snake <= 2'd3;
+                else
+                    next_snake <= 2'd2;
+            end
+            
+            2'd3: begin
+                if (BTNU)
+                    next_snake <= 2'd2;
+                else if (BTND)
+                    next_snake <= 2'd1;
+                else
+                    next_snake <= 2'd3;
+            end
+        
+        endcase
+    end
+    
+    always@(posedge CLK) begin
+        state_snake <= next_snake;
     end
     
 endmodule
