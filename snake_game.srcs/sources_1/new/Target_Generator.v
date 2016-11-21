@@ -52,15 +52,18 @@ module Target_Generator(
 //        end
 //        else begin
             if (reached_target || RESET) begin
-                if ({horizontal_shift_reg[6:0], eight_third_xnor} <= 160 && {horizontal_shift_reg[6:0], eight_third_xnor} >= 10)
+                if ({horizontal_shift_reg[6:0], eight_third_xnor} <= 160 && {vertical_shift_reg[5:0], seven_xnor} <= 120) begin
                     horizontal_shift_reg <= {horizontal_shift_reg[6:0], eight_third_xnor};
-                else
-                    horizontal_shift_reg <= {8'd80};
-                    
-                if ({vertical_shift_reg[5:0], seven_xnor} <= 120 && {vertical_shift_reg[5:0], seven_xnor} >= 10)
                     vertical_shift_reg <= {vertical_shift_reg[5:0], seven_xnor};
-                else
+                end
+                else begin
+                    horizontal_shift_reg <= {8'd80};
                     vertical_shift_reg <= {7'd60};
+                end
+//                if ({vertical_shift_reg[5:0], seven_xnor} <= 120 && {vertical_shift_reg[5:0], seven_xnor} >= 10)
+//                    vertical_shift_reg <= {vertical_shift_reg[5:0], seven_xnor};
+//                else
+//                    vertical_shift_reg <= {7'd60};
             end  
 //            else begin
 //                horizontal_shift_reg <= horizontal_shift_reg;

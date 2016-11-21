@@ -34,13 +34,13 @@ module Master_Game(
         output [7:0] HEX_OUT //k
     );
     
-    wire [3:0] score;
+    wire [4:0] score;
     wire [1:0] state_master;
     wire [1:0] state_navigation;
     wire [14:0] target_address;
     wire [18:0] address;
     wire [11:0] colour;
-    wire [1:0] strobe;
+    wire strobe;
     wire fail;
     
     Master_State_Machine msm    (
@@ -103,9 +103,31 @@ module Master_Game(
                             .SCORE(score)
                         );
     
+    wire [4:0] DecCountAndDOT0;
+    wire [4:0] DecCountAndDOT1;
+    wire [4:0] DecCountAndDOT2;
+    wire [4:0] DecCountAndDOT3;
+    
+    wire [4:0] MuxOut;
+    
+    assign DecCountAndDOT0 = {4'b0, score[4]};
+    assign DecCountAndDOT1 = {1'b0, score[3:0]};
+    assign DecCountAndDOT2 = {5'b0};
+    assign DecCountAndDOT3 = {5'b0};
+    
+    Multiplexer_4way Mux4(
+                            .CONTROL({1'b0, strobe}),
+                            .IN0(DecCountAndDOT0),
+                            .IN1(DecCountAndDOT1),
+                            .IN2(DecCountAndDOT2),
+                            .IN3(DecCountAndDOT3),
+                            .OUT(MuxOut)
+                         );
+    
+    
     Segment_Display_Interface sdi   (
-                                        .SEG_SELECT_IN(2'b00),
-                                        .BIN_IN(score[3:0]),
+                                        .SEG_SELECT_IN({1'b0, strobe}),
+                                        .BIN_IN(MuxOut[3:0]),
                                         .DOT_IN(1'b0),
                                         .SEG_SELECT_OUT(SEG_SELECT),
                                         .HEX_OUT(HEX_OUT)

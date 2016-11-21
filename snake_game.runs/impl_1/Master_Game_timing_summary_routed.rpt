@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Mon Nov 21 05:30:12 2016
+| Date         : Mon Nov 21 08:47:07 2016
 | Host         : henman.inf.ed.ac.uk running 64-bit Scientific Linux release 7.2 (Nitrogen)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file Master_Game_timing_summary_routed.rpt -rpx Master_Game_timing_summary_routed.rpx
 | Design       : Master_Game
@@ -50,7 +50,9 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 698 register/latch pins with no clock driven by root clock pin: CLK (HIGH)
+ There are 714 register/latch pins with no clock driven by root clock pin: CLK (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: s/reached_reg/C (HIGH)
 
 
 2. checking constant_clock
@@ -65,7 +67,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 1982 pins that are not constrained for maximum delay. (HIGH)
+ There are 2023 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -79,7 +81,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 21 ports with no output delay specified. (HIGH)
+ There are 23 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 

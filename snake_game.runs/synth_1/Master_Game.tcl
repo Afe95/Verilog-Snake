@@ -4,6 +4,7 @@
 
 set_param xicom.use_bs_reader 1
 debug::add_scope template.lib 1
+set_msg_config -id {Common-41} -limit 4294967295
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 create_project -in_memory -part xc7a35tcpg236-1
@@ -17,6 +18,7 @@ set_property target_language Verilog [current_project]
 read_verilog -library xil_defaultlib {
   /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v
   /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/VGA_Driver.v
+  /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Multiplexer_4way.v
   /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Snake_control.v
   /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/7Segment_Display_Interface.v
   /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/VGA_Interface.v

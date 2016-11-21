@@ -2,8 +2,8 @@
 # Vivado v2015.2 (64-bit)
 # SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
 # IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
-# Start of session at: Mon Nov 21 05:29:00 2016
-# Process ID: 7670
+# Start of session at: Mon Nov 21 08:45:49 2016
+# Process ID: 30870
 # Log file: /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.runs/synth_1/Master_Game.vds
 # Journal file: /afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
@@ -14,12 +14,11 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-1223] The version limit for your license is '2016.08' and will expire in -82 days. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1063.816 ; gain = 154.520 ; free physical = 5458 ; free virtual = 20759
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1063.824 ; gain = 154.520 ; free physical = 4738 ; free virtual = 20023
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Master_Game' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_Game.v:23]
 INFO: [Synth 8-638] synthesizing module 'Master_State_Machine' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_State_Machine.v:23]
 INFO: [Synth 8-256] done synthesizing module 'Master_State_Machine' (1#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_State_Machine.v:23]
-WARNING: [Synth 8-689] width (4) of port connection 'SCORE' does not match port width (8) of module 'Master_State_Machine' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_Game.v:53]
 INFO: [Synth 8-638] synthesizing module 'Navigation_State_Machine' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Navigation_State_Machine.v:23]
 WARNING: [Synth 8-567] referenced signal 'state_snake' should be on the sensitivity list [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Navigation_State_Machine.v:38]
 INFO: [Synth 8-256] done synthesizing module 'Navigation_State_Machine' (2#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Navigation_State_Machine.v:23]
@@ -33,6 +32,7 @@ INFO: [Synth 8-638] synthesizing module 'Generic_counter' [/afs/inf.ed.ac.uk/use
 INFO: [Synth 8-256] done synthesizing module 'Generic_counter' (3#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
 WARNING: [Synth 8-350] instance 'moveSnake' of module 'Generic_counter' requires 5 connections, but only 4 given [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Snake_control.v:43]
 INFO: [Synth 8-256] done synthesizing module 'Snake_control' (4#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Snake_control.v:23]
+WARNING: [Synth 8-689] width (5) of port connection 'score' does not match port width (4) of module 'Snake_control' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_Game.v:71]
 INFO: [Synth 8-638] synthesizing module 'Target_Generator' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Target_Generator.v:23]
 INFO: [Synth 8-256] done synthesizing module 'Target_Generator' (5#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Target_Generator.v:23]
 INFO: [Synth 8-638] synthesizing module 'VGA_Interface' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/VGA_Interface.v:23]
@@ -67,20 +67,32 @@ INFO: [Synth 8-638] synthesizing module 'Generic_counter__parameterized3' [/afs/
 	Parameter COUNTER_WIDTH bound to: 17 - type: integer 
 	Parameter COUNTER_MAX bound to: 99999 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'Generic_counter__parameterized3' (7#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
-WARNING: [Synth 8-350] instance 'Bit17Counter' of module 'Generic_counter' requires 5 connections, but only 4 given [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Score_Counter.v:56]
+WARNING: [Synth 8-350] instance 'Bit17Counter' of module 'Generic_counter' requires 5 connections, but only 4 given [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Score_Counter.v:58]
 INFO: [Synth 8-638] synthesizing module 'Generic_counter__parameterized4' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
-	Parameter COUNTER_WIDTH bound to: 2 - type: integer 
-	Parameter COUNTER_MAX bound to: 3 - type: integer 
+	Parameter COUNTER_WIDTH bound to: 1 - type: integer 
+	Parameter COUNTER_MAX bound to: 1 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'Generic_counter__parameterized4' (7#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
-WARNING: [Synth 8-350] instance 'Bit2Counter' of module 'Generic_counter' requires 5 connections, but only 4 given [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Score_Counter.v:67]
+WARNING: [Synth 8-350] instance 'Bit2Counter' of module 'Generic_counter' requires 5 connections, but only 4 given [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Score_Counter.v:69]
+INFO: [Synth 8-638] synthesizing module 'Generic_counter__parameterized5' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
+	Parameter COUNTER_WIDTH bound to: 4 - type: integer 
+	Parameter COUNTER_MAX bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Generic_counter__parameterized5' (7#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
+INFO: [Synth 8-638] synthesizing module 'Generic_counter__parameterized6' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
+	Parameter COUNTER_WIDTH bound to: 1 - type: integer 
+	Parameter COUNTER_MAX bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Generic_counter__parameterized6' (7#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Generic_counter.v:23]
+WARNING: [Synth 8-350] instance 'Bit4Counter3' of module 'Generic_counter' requires 5 connections, but only 4 given [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Score_Counter.v:96]
 INFO: [Synth 8-256] done synthesizing module 'Score_Counter' (8#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Score_Counter.v:23]
+INFO: [Synth 8-638] synthesizing module 'Multiplexer_4way' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Multiplexer_4way.v:23]
+INFO: [Synth 8-226] default block is never used [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Multiplexer_4way.v:40]
+INFO: [Synth 8-256] done synthesizing module 'Multiplexer_4way' (9#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Multiplexer_4way.v:23]
 INFO: [Synth 8-638] synthesizing module 'Segment_Display_Interface' [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/7Segment_Display_Interface.v:23]
 INFO: [Synth 8-226] default block is never used [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/7Segment_Display_Interface.v:32]
 INFO: [Synth 8-226] default block is never used [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/7Segment_Display_Interface.v:42]
-INFO: [Synth 8-256] done synthesizing module 'Segment_Display_Interface' (9#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/7Segment_Display_Interface.v:23]
-INFO: [Synth 8-256] done synthesizing module 'Master_Game' (10#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_Game.v:23]
+INFO: [Synth 8-256] done synthesizing module 'Segment_Display_Interface' (10#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/7Segment_Display_Interface.v:23]
+INFO: [Synth 8-256] done synthesizing module 'Master_Game' (11#1) [/afs/inf.ed.ac.uk/user/s14/s1443062/iron-man/snake_game.srcs/sources_1/new/Master_Game.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1102.105 ; gain = 192.809 ; free physical = 5417 ; free virtual = 20720
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1102.113 ; gain = 192.809 ; free physical = 4698 ; free virtual = 19983
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -90,7 +102,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1102.105 ; gain = 192.809 ; free physical = 5417 ; free virtual = 20720
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1102.113 ; gain = 192.809 ; free physical = 4697 ; free virtual = 19983
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -104,29 +116,29 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1397.129 ; gain = 0.000 ; free physical = 5160 ; free virtual = 20462
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1397.137 ; gain = 0.000 ; free physical = 4438 ; free virtual = 19723
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5157 ; free virtual = 20459
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4435 ; free virtual = 19720
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5157 ; free virtual = 20459
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4434 ; free virtual = 19720
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5157 ; free virtual = 20459
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4435 ; free virtual = 19721
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "SnakeState_X" won't be mapped to RAM because address size (26) is larger than maximum supported(18)
 INFO: [Synth 8-5545] ROM "SnakeState_X" won't be mapped to RAM because address size (26) is larger than maximum supported(18)
 INFO: [Synth 8-5544] ROM "SnakeState_X" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "SnakeState_Y" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5154 ; free virtual = 20457
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4435 ; free virtual = 19720
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -145,7 +157,8 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit       Adders := 2     
 	   2 Input      7 Bit       Adders := 2     
 	   2 Input      4 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 1     
+	   2 Input      1 Bit       Adders := 2     
 +---Registers : 
 	               26 Bit    Registers := 1     
 	               17 Bit    Registers := 1     
@@ -154,17 +167,19 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 41    
 	                7 Bit    Registers := 41    
 	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 10    
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 14    
 +---Muxes : 
 	   2 Input     12 Bit        Muxes := 42    
 	   4 Input     12 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 1     
 	   4 Input      7 Bit        Muxes := 1     
 	  16 Input      7 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 6     
+	   2 Input      2 Bit        Muxes := 5     
 	   6 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 7     
 	   4 Input      1 Bit        Muxes := 2     
@@ -264,20 +279,32 @@ Detailed RTL Component Info :
 Module Generic_counter__parameterized4 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      2 Bit       Adders := 1     
+	   2 Input      1 Bit       Adders := 1     
 +---Registers : 
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input      2 Bit        Muxes := 1     
-Module Score_Counter 
+	   2 Input      1 Bit        Muxes := 1     
+Module Generic_counter__parameterized5 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+Module Generic_counter__parameterized6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module Multiplexer_4way 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      5 Bit        Muxes := 1     
 Module Segment_Display_Interface 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -295,15 +322,15 @@ BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5154 ; free virtual = 20457
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4435 ; free virtual = 19721
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "SnakeState_X" won't be mapped to RAM because address size (26) is larger than maximum supported(18)
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5155 ; free virtual = 20457
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4434 ; free virtual = 19720
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1397.133 ; gain = 487.836 ; free physical = 5155 ; free virtual = 20457
+Finished Parallel Reinference  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1397.141 ; gain = 487.836 ; free physical = 4434 ; free virtual = 19720
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -334,40 +361,20 @@ WARNING: [Synth 8-3332] Sequential element (\vgai/vga/col_out_reg[4] ) is unused
 WARNING: [Synth 8-3332] Sequential element (\vgai/vga/col_out_reg[2] ) is unused and will be removed from module Master_Game.
 WARNING: [Synth 8-3332] Sequential element (\vgai/vga/col_out_reg[1] ) is unused and will be removed from module Master_Game.
 WARNING: [Synth 8-3332] Sequential element (\vgai/vga/col_out_reg[0] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[16] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[15] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[14] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[13] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[12] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[11] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[10] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[9] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[8] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[7] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[6] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[5] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[4] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[3] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[2] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[1] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/count_value_reg[0] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit17Counter/Trigger_out_reg ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit2Counter/count_value_reg[1] ) is unused and will be removed from module Master_Game.
-WARNING: [Synth 8-3332] Sequential element (\sc/Bit2Counter/count_value_reg[0] ) is unused and will be removed from module Master_Game.
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1397.137 ; gain = 487.840 ; free physical = 5153 ; free virtual = 20456
+Finished Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1397.145 ; gain = 487.840 ; free physical = 4435 ; free virtual = 19720
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1397.137 ; gain = 487.840 ; free physical = 5153 ; free virtual = 20456
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1397.145 ; gain = 487.840 ; free physical = 4435 ; free virtual = 19720
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1397.137 ; gain = 487.840 ; free physical = 5153 ; free virtual = 20456
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1397.145 ; gain = 487.840 ; free physical = 4435 ; free virtual = 19720
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -375,10 +382,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1397.137 ; gain = 487.840 ; free physical = 5149 ; free virtual = 20452
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1397.145 ; gain = 487.840 ; free physical = 4437 ; free virtual = 19722
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1397.137 ; gain = 487.840 ; free physical = 5149 ; free virtual = 20452
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1397.145 ; gain = 487.840 ; free physical = 4436 ; free virtual = 19721
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -390,7 +397,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19687
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -408,7 +415,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19687
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -421,7 +428,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19687
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -433,13 +440,13 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Start Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19687
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -456,15 +463,15 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |     7|
-|3     |LUT1   |    29|
-|4     |LUT2   |    26|
-|5     |LUT3   |    50|
-|6     |LUT4   |    45|
-|7     |LUT5   |   108|
-|8     |LUT6   |   460|
+|2     |CARRY4 |    11|
+|3     |LUT1   |    47|
+|4     |LUT2   |    27|
+|5     |LUT3   |    51|
+|6     |LUT4   |    57|
+|7     |LUT5   |   107|
+|8     |LUT6   |   466|
 |9     |MUXF7  |     2|
-|10    |FDRE   |   497|
+|10    |FDRE   |   518|
 |11    |FDSE   |   201|
 |12    |IBUF   |     6|
 |13    |OBUF   |    26|
@@ -474,27 +481,31 @@ Report Instance Areas:
 +------+-------------------+--------------------------------+------+
 |      |Instance           |Module                          |Cells |
 +------+-------------------+--------------------------------+------+
-|1     |top                |                                |  1458|
-|2     |  msm              |Master_State_Machine            |     9|
+|1     |top                |                                |  1520|
+|2     |  msm              |Master_State_Machine            |     8|
 |3     |  nsm              |Navigation_State_Machine        |     4|
-|4     |  s                |Snake_control                   |  1030|
+|4     |  s                |Snake_control                   |  1029|
 |5     |    moveSnake      |Generic_counter                 |    93|
-|6     |  sc               |Score_Counter                   |    25|
-|7     |  tg               |Target_Generator                |    26|
-|8     |  vgai             |VGA_Interface                   |   331|
-|9     |    vga            |VGA_Driver                      |   331|
-|10    |      CounterTo3   |Generic_counter__parameterized0 |     6|
-|11    |      CounterTo520 |Generic_counter__parameterized2 |    32|
-|12    |      CounterTo799 |Generic_counter__parameterized1 |    34|
+|6     |  sc               |Score_Counter                   |    91|
+|7     |    Bit17Counter   |Generic_counter__parameterized3 |    60|
+|8     |    Bit2Counter    |Generic_counter__parameterized4 |     2|
+|9     |    Bit4Counter2   |Generic_counter__parameterized5 |    28|
+|10    |    Bit4Counter3   |Generic_counter__parameterized6 |     1|
+|11    |  tg               |Target_Generator                |    24|
+|12    |  vgai             |VGA_Interface                   |   331|
+|13    |    vga            |VGA_Driver                      |   331|
+|14    |      CounterTo3   |Generic_counter__parameterized0 |     6|
+|15    |      CounterTo520 |Generic_counter__parameterized2 |    32|
+|16    |      CounterTo799 |Generic_counter__parameterized1 |    34|
 +------+-------------------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19688
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 44 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1431.215 ; gain = 110.375 ; free physical = 5115 ; free virtual = 20418
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1431.215 ; gain = 521.918 ; free physical = 5115 ; free virtual = 20418
+Synthesis finished with 0 errors, 0 critical warnings and 24 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1431.207 ; gain = 110.359 ; free physical = 4401 ; free virtual = 19687
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1431.207 ; gain = 521.902 ; free physical = 4402 ; free virtual = 19687
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 17 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -502,8 +513,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-49 Infos, 52 Warnings, 0 Critical Warnings and 0 Errors encountered.
+56 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1431.219 ; gain = 413.402 ; free physical = 5115 ; free virtual = 20417
-report_utilization: Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.80 . Memory (MB): peak = 1463.234 ; gain = 0.000 ; free physical = 5113 ; free virtual = 20416
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 21 05:29:31 2016...
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1431.211 ; gain = 413.387 ; free physical = 4408 ; free virtual = 19694
+report_utilization: Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.78 . Memory (MB): peak = 1463.227 ; gain = 0.000 ; free physical = 4408 ; free virtual = 19694
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 21 08:46:22 2016...

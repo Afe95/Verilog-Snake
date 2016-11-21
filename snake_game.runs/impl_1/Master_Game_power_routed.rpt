@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Mon Nov 21 05:30:15 2016
+| Date             : Mon Nov 21 08:47:10 2016
 | Host             : henman.inf.ed.ac.uk running 64-bit Scientific Linux release 7.2 (Nitrogen)
 | Command          : 
 | Design           : Master_Game
@@ -29,18 +29,18 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+-------+
-| Total On-Chip Power (W)  | 6.091 |
-| Dynamic (W)              | 5.994 |
-| Device Static (W)        | 0.097 |
-| Effective TJA (C/W)      | 5.0   |
-| Max Ambient (C)          | 54.5  |
-| Junction Temperature (C) | 55.5  |
-| Confidence Level         | Low   |
-| Setting File             | ---   |
-| Simulation Activity File | ---   |
-| Design Nets Matched      | NA    |
-+--------------------------+-------+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 15.730 (Junction temp exceeded!) |
+| Dynamic (W)              | 15.450                           |
+| Device Static (W)        | 0.280                            |
+| Effective TJA (C/W)      | 5.0                              |
+| Max Ambient (C)          | 6.4                              |
+| Junction Temperature (C) | 103.6                            |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
 
 
 1.1 On-Chip Components
@@ -49,17 +49,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.447 |     1418 |       --- |             --- |
-|   LUT as Logic |     0.404 |      632 |     20800 |            3.04 |
-|   Register     |     0.021 |      698 |     41600 |            1.68 |
-|   CARRY4       |     0.014 |        7 |      8150 |            0.09 |
-|   BUFG         |     0.006 |        1 |        32 |            3.13 |
+| Slice Logic    |     0.786 |     1469 |       --- |             --- |
+|   LUT as Logic |     0.725 |      648 |     20800 |            3.12 |
+|   Register     |     0.034 |      719 |     41600 |            1.73 |
+|   CARRY4       |     0.026 |       11 |      8150 |            0.13 |
 |   F7/F8 Muxes  |     0.002 |        2 |     32600 |           <0.01 |
-|   Others       |     0.000 |       17 |       --- |             --- |
-| Signals        |     0.403 |     1343 |       --- |             --- |
-| I/O            |     5.144 |       32 |       106 |           30.19 |
-| Static Power   |     0.097 |          |           |                 |
-| Total          |     6.091 |          |           |                 |
+|   BUFG         |    <0.001 |        1 |        32 |            3.13 |
+|   Others       |     0.000 |       22 |       --- |             --- |
+| Signals        |     0.777 |     1383 |       --- |             --- |
+| I/O            |    13.887 |       32 |       106 |           30.19 |
+| Static Power   |     0.280 |          |           |                 |
+| Total          |    15.730 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -69,16 +69,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.901 |       0.870 |      0.031 |
-| Vccaux    |       1.800 |     0.202 |       0.188 |      0.015 |
-| Vcco33    |       3.300 |     1.451 |       1.450 |      0.001 |
+| Vccint    |       1.000 |     1.757 |       1.580 |      0.177 |
+| Vccaux    |       1.800 |     0.541 |       0.508 |      0.033 |
+| Vcco33    |       3.300 |     3.927 |       3.926 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |
+| Vccbram   |       1.000 |     0.005 |       0.000 |      0.005 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -136,18 +136,22 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| Master_Game        |     5.994 |
-|   msm              |     0.017 |
-|   nsm              |     0.033 |
-|   s                |     0.502 |
-|     moveSnake      |     0.437 |
-|   sc               |     0.005 |
+| Master_Game        |    15.450 |
+|   msm              |     0.010 |
+|   nsm              |     0.030 |
+|   s                |     0.512 |
+|     moveSnake      |     0.448 |
+|   sc               |     0.741 |
+|     Bit17Counter   |     0.185 |
+|     Bit2Counter    |     0.000 |
+|     Bit4Counter2   |     0.554 |
+|     Bit4Counter3   |     0.002 |
 |   tg               |    <0.001 |
-|   vgai             |     0.233 |
-|     vga            |     0.233 |
-|       CounterTo3   |     0.068 |
-|       CounterTo520 |     0.007 |
-|       CounterTo799 |     0.040 |
+|   vgai             |     0.248 |
+|     vga            |     0.248 |
+|       CounterTo3   |     0.072 |
+|       CounterTo520 |     0.004 |
+|       CounterTo799 |     0.050 |
 +--------------------+-----------+
 
 

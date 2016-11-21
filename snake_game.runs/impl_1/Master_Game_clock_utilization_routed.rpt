@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date              : Mon Nov 21 05:30:16 2016
+| Date              : Mon Nov 21 08:47:12 2016
 | Host              : henman.inf.ed.ac.uk running 64-bit Scientific Linux release 7.2 (Nitrogen)
 | Command           : report_clock_utilization -file Master_Game_clock_utilization_routed.rpt
 | Design            : Master_Game
@@ -47,8 +47,17 @@ Table of Contents
 +-------+--------------------+---------------+------+-------+-------+
 | Index | BUFG Cell          | Net Name      | BELs | Sites | Fixed |
 +-------+--------------------+---------------+------+-------+-------+
-|     1 | CLK_IBUF_BUFG_inst | CLK_IBUF_BUFG |  698 |   202 |    no |
+|     1 | CLK_IBUF_BUFG_inst | CLK_IBUF_BUFG |  718 |   210 |    no |
 +-------+--------------------+---------------+------+-------+-------+
+
+
++-------+-----------------------+--------------------------+----------+--------------+-------+
+|       |                       |          BUFHCE          |          |   Num Loads  |       |
++-------+-----------------------+------------+-------------+----------+------+-------+-------+
+| Index | Src of Rt-thru BUFHCE | Clk-Region | Site        | Net Name | BELs | Sites | Fixed |
++-------+-----------------------+------------+-------------+----------+------+-------+-------+
+|     1 | CLK_IBUF_inst         | X0Y0       | BUFHCE_X0Y0 | CLK_IBUF |    2 |     2 |   yes |
++-------+-----------------------+------------+-------------+----------+------+-------+-------+
 
 
 3. Details of Regional Clocks
@@ -63,6 +72,15 @@ Table of Contents
 6. Details of Local Clocks
 --------------------------
 
++-------+---------------+------------------+--------------+-------+
+|       |               |                  |   Num Loads  |       |
++-------+---------------+------------------+------+-------+-------+
+| Index | Local Clk Src | Net Name         | BELs | Sites | Fixed |
++-------+---------------+------------------+------+-------+-------+
+|     1 | s/reached_reg | s/reached_target |    7 |     4 |    no |
++-------+---------------+------------------+------+-------+-------+
+
+
 7. Clock Regions : Key Resource Utilization
 -------------------------------------------
 
@@ -71,7 +89,7 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  698 |  9600 |    0 |  1600 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X0Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  719 |  9600 |    0 |  1600 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 12000 |    0 |  1800 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  9600 |    0 |  1600 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 12000 |    0 |  1800 |    0 |    40 |    0 |    20 |    0 |    20 |
@@ -87,7 +105,7 @@ Table of Contents
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s | Clock Net Name |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
-| BUFG        | BUFHCE_X0Y8 |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 698 |     0 |        0 | CLK_IBUF_BUFG  |
+| BUFG        | BUFHCE_X0Y8 |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 714 |     0 |        0 | CLK_IBUF_BUFG  |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 
 
@@ -112,9 +130,23 @@ set_property LOC BUFGCTRL_X0Y0 [get_cells CLK_IBUF_BUFG_inst]
 # Location of clock ports
 set_property LOC IOB_X1Y26 [get_ports CLK]
 
+# Clock net "CLK_IBUF" driven by instance "CLK_IBUF_inst" located at site "IOB_X1Y26"
+#startgroup
+create_pblock {CLKAG_CLK_IBUF}
+add_cells_to_pblock [get_pblocks  {CLKAG_CLK_IBUF}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=CLK_IBUF_BUFG_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="CLK_IBUF"}]]]
+resize_pblock [get_pblocks {CLKAG_CLK_IBUF}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
+#endgroup
+
 # Clock net "CLK_IBUF_BUFG" driven by instance "CLK_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y0"
 #startgroup
 create_pblock {CLKAG_CLK_IBUF_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_CLK_IBUF_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="CLK_IBUF_BUFG"}]]]
 resize_pblock [get_pblocks {CLKAG_CLK_IBUF_BUFG}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
+#endgroup
+
+# Clock net "s/reached_target" driven by instance "s/reached_reg" located at site "SLICE_X2Y34"
+#startgroup
+create_pblock {CLKAG_s/reached_target}
+add_cells_to_pblock [get_pblocks  {CLKAG_s/reached_target}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="s/reached_target"}]]]
+resize_pblock [get_pblocks {CLKAG_s/reached_target}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
 #endgroup
